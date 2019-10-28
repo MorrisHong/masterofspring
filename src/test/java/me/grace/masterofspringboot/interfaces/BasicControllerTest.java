@@ -27,6 +27,18 @@ public class BasicControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string("Hello World"));
+    }
+
+    @Test
+    public void welcomeWithObject() throws Exception {
+        mockMvc.perform(get("/welcome-with-object"))
+                .andDo(print());
+    }
+
+    @Test
+    public void welcomeWithParameter() throws Exception {
+        mockMvc.perform(get("/welcome-with-parameter/name/grace"))
+                .andDo(print());
 
     }
 }
